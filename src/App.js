@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Player from "./components/Player";
 
 const [songs, setSongs] = useState([
   {
@@ -27,10 +28,17 @@ const [songs, setSongs] = useState([
   },
 ]);
 
+const [currentSong, setCurrentSong] = useState(0);
+const [nextSong, setNextSong] = useState(currentSong + 1);
+
 function App() {
   return (
     <div className="App">
       <h1>Hello React</h1>
+      <Player  
+      {songs[currentSong]}
+      {nextSong[nextSong]}
+      />
     </div>
   );
 }
