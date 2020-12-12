@@ -7,6 +7,7 @@ function Player(props) {
       <audio src=""></audio>
       <h4>Playing Now</h4>
       {/*DETAILS*/}
+      <PlayerDetails song={props.song} />
       {/*CONTROLS*/}
       <p>
         Next up:
