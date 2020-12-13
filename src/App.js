@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Player from "./components/Player";
-import PlayerControls from "./components/PlayerControls";
 
 
 function App() {
-  const [songs, setSongs] = useState([
+  const [songs] = useState([
     {
       title: "Is This Love",
       artist: "Bob Marley",
@@ -34,11 +33,23 @@ function App() {
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
   const [nextSongIndex, setNextSongIndex] = useState(currentSongIndex + 1);
 
+  useEffect(() => {
+    setNextSongIndex(() => {
+      if(currentSongIndex + 1 > songs.length - 1) {
+        return 0;
+      } else {
+        return currentSongIndex + 1;
+      }
+    });
+  },[currentSongIndex]);
+
   return (
     <div className="App">
       <Player 
-      song={songs[currentSongIndex]} 
-      nextSong={songs[nextSongIndex]} />
+      currentSongIndex={currentSongIndex}
+      setCurrentSongIndex={setCurrentSongIndex}
+      nextSongIndex={nextSongIndex}
+      songs={songs} />
       
     </div>
   );
