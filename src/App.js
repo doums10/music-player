@@ -25,7 +25,7 @@ function App() {
     {
       title: "Journey",
       artist: "Declan DP",
-      img_src: "./images/journey",
+      img_src: "./images/Journey.jpeg",
       src: "./music/Journey – Declan DP.mp3",
     },
   ]);
