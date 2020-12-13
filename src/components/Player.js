@@ -12,9 +12,8 @@ function Player(props) {
       {/*CONTROLS*/}
 						<PlayerControls />
       <p>
-        Next up: 
-        <strong>
-          {props.nextSong.title} by {props.nextSong.artist}
+        Next up:
+        <strong> {props.nextSong.title} by {props.nextSong.artist}
         </strong>
       </p>
     </div>

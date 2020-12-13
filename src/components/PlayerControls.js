@@ -11,7 +11,7 @@ function PlayerControls() {
   return (
     <div className="c-player-controls">
       <button className="skip-btn">
-        <FontAwesomeIcon icon={faBackward} />
+        <FontAwesomeIcon icon={faBackward}  />
       </button>
       <button className="play-btn">
         <FontAwesomeIcon icon={faPlay} />
