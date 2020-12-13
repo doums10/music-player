@@ -1,5 +1,6 @@
 import React from "react";
 import PlayerDetails from "./PlayerDetails";
+import PlayerControls from "./PlayerControls";
 
 function Player(props) {
   return (
@@ -9,6 +10,7 @@ function Player(props) {
       {/*DETAILS*/}
       <PlayerDetails song={props.song} />
       {/*CONTROLS*/}
+						<PlayerControls />
       <p>
         Next up:
         <strong>

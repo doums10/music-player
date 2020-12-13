@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Player from "./components/Player";
+import PlayerControls from "./components/PlayerControls";
 
 function App() {
   const [songs, setSongs] = useState([
@@ -37,6 +38,7 @@ function App() {
       <Player 
       song={songs[currentSongIndex]} 
       nextSong={songs[nextSongIndex]} />
+      
     </div>
   );
 }
