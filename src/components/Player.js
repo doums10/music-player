@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import PlayerDetails from "./PlayerDetails";
 import PlayerControls from "./PlayerControls";
+import Waveform from "./Waveform";
+
 
 function Player(props) {
 
@@ -42,23 +44,30 @@ function Player(props) {
     }
   }
   
+  
   return (
     <div className="c-player">
-      <audio src={props.songs[props.currentSongIndex].src} ref={audioEl}></audio>
+      <audio
+        src={props.songs[props.currentSongIndex].src}
+        ref={audioEl}
+        autoPlay
+      ></audio>
       <h4>Playing Now</h4>
       {/*DETAILS*/}
-      <PlayerDetails 
-      song={props.songs[props.currentSongIndex]}
-      />
+      <PlayerDetails song={props.songs[props.currentSongIndex]} />
+      <Waveform src={props.songs[props.currentSongIndex].src} />
       {/*CONTROLS*/}
-			<PlayerControls 
-        isPlaying={isPlaying} 
-        setIsPlaying={setIsPlaying} 
+      <PlayerControls
+        isPlaying={isPlaying}
+        setIsPlaying={setIsPlaying}
         SkipSong={SkipSong}
       />
       <p>
         Next up:
-        <strong> {props.songs[props.nextSongIndex].title} by {props.songs[props.nextSongIndex].artist}
+        <strong>
+          {" "}
+          {props.songs[props.nextSongIndex].title} by{" "}
+          {props.songs[props.nextSongIndex].artist}
         </strong>
       </p>
     </div>

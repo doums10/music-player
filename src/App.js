@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import Player from "./components/Player";
 
 
+
+
 function App() {
   const [songs] = useState([
     {
@@ -45,12 +47,13 @@ function App() {
 
   return (
     <div className="App">
-      <Player 
-      currentSongIndex={currentSongIndex}
-      setCurrentSongIndex={setCurrentSongIndex}
-      nextSongIndex={nextSongIndex}
-      songs={songs} />
       
+      <Player
+        currentSongIndex={currentSongIndex}
+        setCurrentSongIndex={setCurrentSongIndex}
+        nextSongIndex={nextSongIndex}
+        songs={songs}
+      />
     </div>
   );
 }
