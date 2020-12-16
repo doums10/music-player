@@ -6,8 +6,8 @@ export default class Waveform extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      playing:true,
-    }
+      playing: true,
+    };
   }
 
   componentDidMount() {
@@ -20,9 +20,11 @@ export default class Waveform extends React.Component {
       height: 70,
       responsive: true,
       autoCenter: true,
+      barWidth: 3,
+      backend: "MediaElement",
     });
-		this.wavesurfer.load(this.props.src);		
-    }
+    this.wavesurfer.load(this.props.src);
+  }
 
   componentWillUnmount() {}
   render() {
@@ -35,5 +37,5 @@ export default class Waveform extends React.Component {
 }
 
 Waveform.defaultProps = {
-  src: ""
+  src: "",
 };

@@ -3,9 +3,7 @@ import PlayerDetails from "./PlayerDetails";
 import PlayerControls from "./PlayerControls";
 import Waveform from "./Waveform";
 
-
 function Player(props) {
-
   const audioEl = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -20,8 +18,8 @@ function Player(props) {
 
   //paramétrage changement de sons forward
   const SkipSong = (forwards = true) => {
-    if(forwards) {
-     props.setCurrentSongIndex(() => {
+    if (forwards) {
+      props.setCurrentSongIndex(() => {
         let temp = props.currentSongIndex;
         temp++;
 
@@ -29,8 +27,8 @@ function Player(props) {
           temp = 0;
         }
         return temp;
-     });
-     //paramétrage backward
+      });
+      //paramétrage backward
     } else {
       props.setCurrentSongIndex(() => {
         let temp = props.currentSongIndex;
@@ -42,21 +40,23 @@ function Player(props) {
         return temp;
       });
     }
-  }
-  
-  
+  };
+
   return (
     <div className="c-player">
       <audio
         src={props.songs[props.currentSongIndex].src}
         ref={audioEl}
-        autoPlay
+        autoPlay={true}
       ></audio>
       <h4>Playing Now</h4>
       {/*DETAILS*/}
       <PlayerDetails song={props.songs[props.currentSongIndex]} />
-      <Waveform src={props.songs[props.currentSongIndex].src} />
+
       {/*CONTROLS*/}
+      <Waveform
+        src={props.songs[props.currentSongIndex].src}
+      />
       <PlayerControls
         isPlaying={isPlaying}
         setIsPlaying={setIsPlaying}
