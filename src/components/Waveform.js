@@ -1,41 +1,44 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import WaveSurfer from "wavesurfer";
 
-export default class Waveform extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      playing: true,
-    };
-  }
+import React from 'react';
 
-  componentDidMount() {
-    this.$el = ReactDOM.findDOMNode(this);
-    this.$waveform = this.$el.querySelector(".wave");
-    this.wavesurfer = WaveSurfer.create({
-      container: this.$waveform,
-      waveColor: "#343A46",
-      progressColor: "#FFFFFF",
-      height: 70,
-      responsive: true,
-      autoCenter: true,
-      barWidth: 3,
-      backend: "MediaElement",
-    });
-    this.wavesurfer.load(this.props.src);
-  }
-
-  componentWillUnmount() {}
+class Waveform extends React.Component {
   render() {
     return (
-      <div className="waveform">
-        <div className="wave"></div>
+      <div>
+      <Waveform
+        // Audio buffer
+        buffer={null}
+        // waveform height
+        height={150}
+        markerStyle={{
+          // Position marker color
+          color: "#fff",
+          // Position marker width (in pixels)
+          width: 4,
+        }}
+        // Optionally handle user manually changing position (0 - 1)
+        onPositionChange={(pos) => console.log(pos)}
+        // Wave plot type (line or bar)
+        plot="bar"
+        // Marker position on waveform (0 - 1)
+        position={0.5}
+        // redraw waveform on window size change (default: true)
+        responsive={true}
+        // Show position marker
+        showPosition={true}
+        waveStyle={{
+          // animate waveform on draw (default: true)
+          animate: true,
+          // waveform color
+          color: "#000",
+          // width of each rendered point (min: 1, max: 10)
+          pointWidth: 1,
+        }}
+        // waveform width
+        width={100}
+      />
       </div>
     );
   }
 }
-
-Waveform.defaultProps = {
-  src: "",
-};
+export default Waveform;
